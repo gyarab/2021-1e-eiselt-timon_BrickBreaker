@@ -110,8 +110,8 @@ public class Hratelnost extends JPanel implements KeyListener, ActionListener {
 
         if (e.getKeyCode () == KeyEvent.VK_LEFT) { //k rozpoznání, jestli byla zmáčknuta levá klávesa šipky//
 
-            if (hráčX >= 600) {
-                hráčX = 600 ;
+            if (hráčX <= 10) {
+                hráčX = 10 ;
             }
 
             else {
