@@ -1,12 +1,12 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.awt.Graphics2D;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.KeyEvent;
 
-public class Hratelnost extends JPanel implements KeyListener, ActionListener {
+public class Hratelnost extends JPanel implements ActionListener, KeyListener {
 
     private boolean hrát = false; //aby, když spustíme hru, tak nehrála sama//
 
@@ -14,8 +14,8 @@ public class Hratelnost extends JPanel implements KeyListener, ActionListener {
 
     private int všechnyCihly = 21; //všechny cihly ve hře//
 
-    private Timer stopky; //tvorba stopek//
-    private GenerátorSítě síť; //tvorba sítě//
+    private Timer stopky; //tvorba proměnné stopek//
+    private GenerátorSítě síť; //tvorba proměnné sítě//
 
     private int delay = 3; //určuje nám rychlost koule//
 
@@ -33,42 +33,42 @@ public class Hratelnost extends JPanel implements KeyListener, ActionListener {
         setFocusable (true);
         setFocusTraversalKeysEnabled (false);
 
-        síť = new GenerátorSítě (3, 7);
+        síť = new GenerátorSítě (3, 7); //vytvoření sítě//
 
-        stopky = new Timer (delay, this);
-        stopky.start ();
+        stopky = new Timer (delay, this); //vytvoření stopek//
+        stopky.start (); //spuštění stopek//
     }
 
     public void paint (Graphics grafika) {
 
         //tvorba ohraničení//
-        grafika.setColor (Color.red);
-        grafika.fillRect (0, 0, 692, 3);
-        grafika.fillRect (0, 0, 3, 592);
-        grafika.fillRect (691, 0, 3, 592);
+        grafika.setColor (Color.red); //udávání barvy//
+        grafika.fillRect (0, 0, 692, 3); //udávání rozměrů//
+        grafika.fillRect (0, 0, 3, 592); //udávání rozměrů//
+        grafika.fillRect (691, 0, 3, 592); //udávání rozměrů//
 
         //tvorba pozadí//
-        grafika.setColor (Color.black);
-        grafika.fillRect (1, 1, 692, 592);
+        grafika.setColor (Color.black); //udávání barvy//
+        grafika.fillRect (1, 1, 692, 592); //udávání rozměrů//
 
         //tvorba cihly//
-        síť.draw ( (Graphics2D) grafika);
+        síť.draw ( (Graphics2D) grafika); //vykreslení cihel//
 
         //tvorba koule//
-        grafika.setColor (Color.blue);
-        grafika.fillOval (pozicekouleX, pozicekouleY, 22, 22);
+        grafika.setColor (Color.blue); //udávání barvy//
+        grafika.fillOval (pozicekouleX, pozicekouleY, 22, 22); //udávání rozměrů//
 
         if (všechnyCihly <= 0) {
             hrát = false;
             směrkouleX = 0;
             směrkouleY = 0;
 
-            grafika.setColor(Color.red);
-            grafika.setFont (new Font ("dialoginput", Font.BOLD, 29) );
-            grafika.drawString ("Vyhráli jste ! Dosáhli jste skóre:" + skóre, 65, 300);
+            grafika.setColor(Color.red); //udávání barvy//
+            grafika.setFont (new Font ("dialoginput", Font.BOLD, 29) ); //udávání typu a velikosti fontu//
+            grafika.drawString ("Vyhráli jste ! Dosáhli jste skóre:" + skóre, 65, 300); //vypisování věty a její poloha v JPanelu//
 
-            grafika.setFont (new Font ("dialoginput", Font.BOLD, 24) );
-            grafika.drawString ("Stiskněte MEZERNÍK pro novou hru", 118, 360);
+            grafika.setFont (new Font ("dialoginput", Font.BOLD, 24) ); //udávání typu a velikosti fontu//
+            grafika.drawString ("Stiskněte MEZERNÍK pro novou hru", 118, 360); //vypisování věty a její poloha v JPanelu//
         }
 
         if (pozicekouleY > 570) {
@@ -76,22 +76,22 @@ public class Hratelnost extends JPanel implements KeyListener, ActionListener {
             směrkouleX = 0;
             směrkouleY = 0;
 
-            grafika.setColor(Color.red);
-            grafika.setFont (new Font ("dialoginput", Font.BOLD, 29) );
-            grafika.drawString ("Konec Hry :-( Dosáhli jste skóre:" + skóre, 65, 300);
+            grafika.setColor(Color.red); //udávání barvy//
+            grafika.setFont (new Font ("dialoginput", Font.BOLD, 29) ); //udávání typu a velikosti fontu//
+            grafika.drawString ("Konec Hry :-( Dosáhli jste skóre:" + skóre, 65, 300); //vypisování věty a její poloha v JPanelu//
 
-            grafika.setFont (new Font ("dialoginput", Font.BOLD, 24) );
-            grafika.drawString ("Stiskněte MEZERNÍK pro novou hru", 118, 360);
+            grafika.setFont (new Font ("dialoginput", Font.BOLD, 24) ); //udávání typu a velikosti fontu//
+            grafika.drawString ("Stiskněte MEZERNÍK pro novou hru", 118, 360); //vypisování věty a její poloha v JPanelu//
         }
 
         //tvorba plošiny//
-        grafika.setColor (Color.red);
-        grafika.fillRect (hráčX, 550, 90, 9);
+        grafika.setColor (Color.red); //udávání barvy//
+        grafika.fillRect (hráčX, 550, 90, 9); //udávání polohy a rozměrů//
 
         //tvroba skóre//
-        grafika.setColor (Color.red);
-        grafika.setFont ( new Font ("dialoginput", Font.BOLD, 27) );
-        grafika.drawString ("" + skóre, 635, 35);
+        grafika.setColor (Color.red); //udávání barvy//
+        grafika.setFont ( new Font ("dialoginput", Font.BOLD, 27) ); //udávání typu a velikosti fontu//
+        grafika.drawString ("" + skóre, 635, 35); //vypisování skóre a udání jeho polohy v JPanelu//
     }
 
     @Override
@@ -110,8 +110,8 @@ public class Hratelnost extends JPanel implements KeyListener, ActionListener {
 
         if (e.getKeyCode () == KeyEvent.VK_LEFT) { //k rozpoznání, jestli byla zmáčknuta levá klávesa šipky//
 
-            if (hráčX <= 10) {
-                hráčX = 10 ;
+            if (hráčX >= 600) {
+                hráčX = 600 ;
             }
 
             else {
