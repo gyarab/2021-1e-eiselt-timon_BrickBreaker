@@ -20,8 +20,8 @@ public class GenerátorSítě {
             }
         }
 
-        šířkaCihly = 550/sloupec;
-        výškaCihly = 150/řada;
+        šířkaCihly = 550/sloupec; //udávání rozměrů//
+        výškaCihly = 150/řada; //udávání rozměrů//
     }
 
     public void draw (Graphics2D grafika)  {
@@ -33,11 +33,11 @@ public class GenerátorSítě {
             for (b = 0; b < síť [0].length; b++) {
 
                 if (síť [a][b] > 0) {
-                    grafika.setColor (Color.red);
+                    grafika.setColor (Color.red); //udávání barvy//
                     grafika.fillRect (b * šířkaCihly + 80, a * výškaCihly + 50, šířkaCihly, výškaCihly);
 
-                    grafika.setColor (Color.black);
-                    grafika.drawRect (b * šířkaCihly + 80, a * výškaCihly + 50, šířkaCihly, výškaCihly);
+                    grafika.setColor (Color.black); //udávání barvy//
+                    grafika.drawRect (b * šířkaCihly + 80, a * výškaCihly + 50, šířkaCihly, výškaCihly); //
                     grafika.setStroke (new BasicStroke () );
                 }
             }
