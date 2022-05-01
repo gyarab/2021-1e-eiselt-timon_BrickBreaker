@@ -17,9 +17,9 @@ public class Hratelnost extends JPanel implements ActionListener, KeyListener {
     private Timer stopky; //tvorba proměnné stopek//
     private GenerátorSítě síť; //tvorba proměnné sítě//
 
-    private int delay = 3; //určuje nám rychlost koule//
+    private int delay = 2; //určuje nám rychlost koule//
 
-    private int hráčX = 310; //začínající pozice naší plošiny//
+    private int hráčX = 305; //začínající pozice naší plošiny//
 
     private int pozicekouleX = 180; //začínající pozice naší koule v X//
     private int pozicekouleY = 380; //začínající pozice naší koule v Y//
@@ -65,7 +65,7 @@ public class Hratelnost extends JPanel implements ActionListener, KeyListener {
 
             grafika.setColor(Color.red); //udávání barvy//
             grafika.setFont (new Font ("dialoginput", Font.BOLD, 29) ); //udávání typu a velikosti fontu//
-            grafika.drawString ("Vyhráli jste ! Dosáhli jste skóre:" + skóre, 65, 300); //vypisování věty a její poloha v JPanelu//
+            grafika.drawString ("Vyhráli jste ! Dosáhli jste skóre:" + skóre, 35, 300); //vypisování věty a její poloha v JPanelu//
 
             grafika.setFont (new Font ("dialoginput", Font.BOLD, 24) ); //udávání typu a velikosti fontu//
             grafika.drawString ("Stiskněte MEZERNÍK pro novou hru", 118, 360); //vypisování věty a její poloha v JPanelu//
@@ -86,7 +86,7 @@ public class Hratelnost extends JPanel implements ActionListener, KeyListener {
 
         //tvorba plošiny//
         grafika.setColor (Color.red); //udávání barvy//
-        grafika.fillRect (hráčX, 550, 65, 8); //udávání polohy a rozměrů//
+        grafika.fillRect (hráčX, 525, 65, 8); //udávání polohy a rozměrů//
 
         //tvroba skóre//
         grafika.setColor (Color.red); //udávání barvy//
@@ -99,7 +99,7 @@ public class Hratelnost extends JPanel implements ActionListener, KeyListener {
 
         if (e.getKeyCode () == KeyEvent.VK_RIGHT) { //k rozpoznání, jestli byla zmáčknuta pravá klávesa šipky//
 
-            if (hráčX >= 600) {
+            if (hráčX > 600) {
                 hráčX = 600;
             }
 
@@ -110,8 +110,8 @@ public class Hratelnost extends JPanel implements ActionListener, KeyListener {
 
         if (e.getKeyCode () == KeyEvent.VK_LEFT) { //k rozpoznání, jestli byla zmáčknuta levá klávesa šipky//
 
-            if (hráčX >= 600) {
-                hráčX = 600 ;
+            if (hráčX < 10) {
+                hráčX = 10;
             }
 
             else {
@@ -129,8 +129,8 @@ public class Hratelnost extends JPanel implements ActionListener, KeyListener {
                 síť = new GenerátorSítě (3, 7);
                 směrkouleX = -1;
                 směrkouleY = -2;
-                pozicekouleX = 120;
-                pozicekouleY = 350;
+                pozicekouleX = 260;
+                pozicekouleY = 380;
 
                 repaint ();
             }
@@ -139,12 +139,12 @@ public class Hratelnost extends JPanel implements ActionListener, KeyListener {
 
     public void jdiDoprava () {
         hrát = true;
-        hráčX += 20;
+        hráčX += 17;
     }
 
     public void jdiDoleva () {
         hrát = true;
-        hráčX -= 20;
+        hráčX -= 17;
     }
 
     @Override
@@ -153,7 +153,7 @@ public class Hratelnost extends JPanel implements ActionListener, KeyListener {
 
         if (hrát) {
 
-            if (new Rectangle (pozicekouleX, pozicekouleY, 20, 20). intersects (new Rectangle (hráčX, 550, 65, 8) ) ) {
+            if (new Rectangle (pozicekouleX, pozicekouleY, 20, 20). intersects (new Rectangle (hráčX, 520, 65, 8) ) ) {
                 směrkouleY = -směrkouleY;
             }
 
@@ -189,7 +189,7 @@ public class Hratelnost extends JPanel implements ActionListener, KeyListener {
                 }
             }
 
-            pozicekouleX += směrkouleX;
+            pozicekouleX -= směrkouleX;
             pozicekouleY += směrkouleY;
 
             if (pozicekouleX < 0) {
