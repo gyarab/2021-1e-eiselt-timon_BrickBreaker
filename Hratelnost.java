@@ -21,7 +21,7 @@ public class Hratelnost extends JPanel implements ActionListener, KeyListener {
 
     private int hráčX = 305; //začínající pozice naší plošiny//
 
-    private int pozicekouleX = 180; //začínající pozice naší koule v X//
+    private int pozicekouleX = 140; //začínající pozice naší koule v X//
     private int pozicekouleY = 380; //začínající pozice naší koule v Y//
 
     private int směrkouleX = -1; //kam bude koule směřovat v X//
