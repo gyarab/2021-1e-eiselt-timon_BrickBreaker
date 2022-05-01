@@ -86,12 +86,12 @@ public class Hratelnost extends JPanel implements ActionListener, KeyListener {
 
         //tvorba plošiny//
         grafika.setColor (Color.red); //udávání barvy//
-        grafika.fillRect (hráčX, 550, 90, 9); //udávání polohy a rozměrů//
+        grafika.fillRect (hráčX, 550, 65, 8); //udávání polohy a rozměrů//
 
         //tvroba skóre//
         grafika.setColor (Color.red); //udávání barvy//
         grafika.setFont ( new Font ("dialoginput", Font.BOLD, 27) ); //udávání typu a velikosti fontu//
-        grafika.drawString ("" + skóre, 635, 35); //vypisování skóre a udání jeho polohy v JPanelu//
+        grafika.drawString ("" + skóre, 17, 35); //vypisování skóre a udání jeho polohy v JPanelu//
     }
 
     @Override
@@ -153,7 +153,7 @@ public class Hratelnost extends JPanel implements ActionListener, KeyListener {
 
         if (hrát) {
 
-            if (new Rectangle (pozicekouleX, pozicekouleY, 20, 20). intersects (new Rectangle (hráčX, 550, 100, 8) ) ) {
+            if (new Rectangle (pozicekouleX, pozicekouleY, 20, 20). intersects (new Rectangle (hráčX, 550, 65, 8) ) ) {
                 směrkouleY = -směrkouleY;
             }
 
