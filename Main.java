@@ -9,7 +9,7 @@ public class Main {
         Hratelnost hratelnost = new Hratelnost ();
 
         objekt.setBounds (10, 10, 710, 600); //udávání rozměrů otevřeného okna//
-        objekt.setTitle ("Vítejte ve hře BRICK BREAKER"); //nadpis v otevřeném okně//
+        objekt.setTitle ("Vítejte v mé verzi hry BRICK BREAKER"); //nadpis v otevřeném okně//
         objekt.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
         objekt.add (hratelnost);
         objekt.setResizable (false);
