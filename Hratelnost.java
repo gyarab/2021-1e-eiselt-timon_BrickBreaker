@@ -8,21 +8,21 @@ import java.awt.event.KeyEvent;
 
 public class Hratelnost extends JPanel implements ActionListener, KeyListener {
 
-    private boolean hrát = false; //aby, když spustíme hru, tak nehrála sama//
+    private boolean hrát = false; //aby, když spustíme hru, tak nehrála sama, musí být námi spuštěna//
 
     private int skóre = 0; //skóre na začátku hry//
 
-    private int všechnyCihly = 21; //všechny cihly ve hře//
+    private int všechnyCihly = 21; //počet všech cihel ve hře//
 
     private Timer stopky; //tvorba proměnné stopek//
     private GenerátorSítě síť; //tvorba proměnné sítě//
 
     private int delay = 2; //určuje nám rychlost koule//
 
-    private int hráčX = 305; //začínající pozice naší plošiny//
+    private int hráčX = 305; //začínající pozice plošiny//
 
-    private int pozicekouleX = 140; //začínající pozice naší koule v X//
-    private int pozicekouleY = 380; //začínající pozice naší koule v Y//
+    private int pozicekouleX = 140; //začínající pozice koule v X//
+    private int pozicekouleY = 380; //začínající pozice koule v Y//
 
     private int směrkouleX = -1; //kam bude koule směřovat v X//
     private int směrkouleY = -2; //kam bude koule směřovat v Y//
