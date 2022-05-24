@@ -15,7 +15,7 @@ public class Hratelnost extends JPanel implements ActionListener, KeyListener {
     private int všechnyCihly = 21; //počet všech cihel ve hře//
 
     private Timer stopky; //tvorba proměnné stopek//
-    private GenerátorSítě síť; //tvorba proměnné sítě//
+    private GeneratorCihel síť; //tvorba proměnné sítě//
 
     private int delay = 2; //určuje nám rychlost koule//
 
@@ -33,7 +33,7 @@ public class Hratelnost extends JPanel implements ActionListener, KeyListener {
         setFocusable (true);
         setFocusTraversalKeysEnabled (false);
 
-        síť = new GenerátorSítě (3, 7); //vytvoření sítě//
+        síť = new GeneratorCihel (3, 7); //vytvoření sítě//
 
         stopky = new Timer (delay, this); //vytvoření stopek//
         stopky.start (); //spuštění stopek//
@@ -126,7 +126,7 @@ public class Hratelnost extends JPanel implements ActionListener, KeyListener {
                 hráčX = 310;
                 skóre = 0;
                 všechnyCihly = 21;
-                síť = new GenerátorSítě (3, 7);
+                síť = new GeneratorCihel (3, 7);
                 směrkouleX = -1;
                 směrkouleY = -2;
                 pozicekouleX = 260;
