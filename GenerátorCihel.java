@@ -2,13 +2,13 @@ import java.awt.*;
 import java.awt.Graphics2D;
 import java.awt.Color;
 
-public class GenerátorCihel {
+public class GeneratorCihel {
 
     public int síť [][]; //tvorba sítě, ve které se budou cihly nacházet//
     public int šířkaCihly; //tvorba šířky cihly//
     public int výškaCihly; //tvorba výšky cihly//
 
-    public GenerátorCihel (int řada, int sloupec) {
+    public GeneratorCihel (int řada, int sloupec) {
         síť = new int [řada][sloupec];
 
         int a;
